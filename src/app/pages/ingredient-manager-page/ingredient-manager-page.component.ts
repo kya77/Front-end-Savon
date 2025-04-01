@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Ingredient } from '../../models/Ingredient';
 import { DEFAULT_INGREDIENT } from '../../shared/constants/ingredients.constants';
-import { IngredientService } from '../../../servcies/ingredients.servcie';
+import { IngredientService } from '../../../services/ingredients.service';
 @Component({
 
 selector: 'app-ingredient-manager-page',

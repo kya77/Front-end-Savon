@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalIngredientPickerComponent } from '../../shared/modal-ingredient-picker/modal-ingredient-picker.component';
 import { Ingredient } from '../../models/Ingredient';
-import { IngredientService } from '../../../servcies/ingredients.servcie';
+import { IngredientService } from '../../../services/ingredients.service';
 import { LigneIngredient } from '../../models/LigneIngredient';
 import { LigneIngredientDTO } from '../../models/LigneIngredientDTO';
 import { RecetteDTO } from '../../models/RecetteDTO';
 import { Recette } from '../../models/Recette';
-import { RecetteService } from '../../../servcies/recette.servcie';
+import { RecetteService } from '../../../services/recette.service';
 @Component({
 selector: 'app-recipe-calculator-page',
 templateUrl: './recipe-calculator-page.component.html',

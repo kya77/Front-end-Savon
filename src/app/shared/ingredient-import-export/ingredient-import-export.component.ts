@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Ingredient } from '../../models/Ingredient';
-import { IngredientService } from '../../../servcies/ingredients.servcie';
+import { IngredientService } from '../../../services/ingredients.service';
 @Component({
 selector: 'app-ingredient-import-export',
 templateUrl: './ingredient-import-export.component.html',
