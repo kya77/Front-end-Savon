@@ -32,6 +32,7 @@ nav {
     font-size: 1rem;
     text-transform: uppercase;
     transition: all 0.3s ease;
+    border: none;
     cursor: pointer;
 }
 
@@ -39,6 +40,11 @@ nav {
 .nav-btn:hover {
     color: #371B7D; 
 }
+
+header nav {
+    flex-direction: column;
+    gap: 10px;
+  }
 
 .user {
     background-color: #2e8b57;
