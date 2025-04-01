@@ -1,0 +1,138 @@
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Ajouter un ingrédient</h2>
+  
+  <form #ingredientForm="ngForm" (ngSubmit)="onSubmit()" class="row g-3">
+    <!-- Nom -->
+    <div class="col-md-6">
+      <label class="form-label" for="name">Nom :</label>
+      <input type="text" id="name" name="name" [(ngModel)]="ingredient.nom" class="form-control" required>
+    </div>
+
+    <!-- Iode -->
+    <div class="col-md-6">
+      <label class="form-label" for="iode">Iode :</label>
+      <input type="number" id="iode" name="iode" [(ngModel)]="ingredient.iode" class="form-control" required>
+    </div>
+
+    <!-- INS -->
+    <div class="col-md-6">
+      <label class="form-label" for="ins">INS :</label>
+      <input type="number" id="ins" name="ins" [(ngModel)]="ingredient.ins" class="form-control" required>
+    </div>
+
+    <!-- Sapo -->
+    <div class="col-md-6">
+      <label class="form-label" for="sapo">Sapo :</label>
+      <input type="number" id="sapo" name="sapo" [(ngModel)]="ingredient.sapo" class="form-control" required>
+    </div>
+
+    <!-- Volume Mousse -->
+    <div class="col-md-6">
+      <label class="form-label" for="volMousse">Volume Mousse :</label>
+      <input type="number" id="volMousse" name="volMousse" [(ngModel)]="ingredient.volMousse" class="form-control" required>
+    </div>
+
+    <!-- Tenue Mousse -->
+    <div class="col-md-6">
+      <label class="form-label" for="tenueMousse">Tenue Mousse :</label>
+      <input type="number" id="tenueMousse" name="tenueMousse" [(ngModel)]="ingredient.tenueMousse" class="form-control" required>
+    </div>
+
+    <!-- Douceur -->
+    <div class="col-md-6">
+      <label class="form-label" for="douceur">Douceur :</label>
+      <input type="number" id="douceur" name="douceur" [(ngModel)]="ingredient.douceur" class="form-control" required>
+    </div>
+
+    <!-- Lavant -->
+    <div class="col-md-6">
+      <label class="form-label" for="lavant">Lavant :</label>
+      <input type="number" id="lavant" name="lavant" [(ngModel)]="ingredient.lavant" class="form-control" required>
+    </div>
+
+    <!-- Dureté -->
+    <div class="col-md-6">
+      <label class="form-label" for="durete">Dureté :</label>
+      <input type="number" id="durete" name="durete" [(ngModel)]="ingredient.durete" class="form-control" required>
+    </div>
+
+    <!-- Solubilité -->
+    <div class="col-md-6">
+      <label class="form-label" for="solubilite">Solubilité :</label>
+      <input type="number" id="solubilite" name="solubilite" [(ngModel)]="ingredient.solubilite" class="form-control" required>
+    </div>
+
+    <!-- Séchage -->
+    <div class="col-md-6">
+      <label class="form-label" for="sechage">Séchage :</label>
+      <input type="number" id="sechage" name="sechage" [(ngModel)]="ingredient.sechage" class="form-control" required>
+    </div>
+
+    <!-- Est un corps gras -->
+    <div class="col-md-12 form-check">
+      <input type="checkbox" id="estCorpsGras" name="estCorpsGras" [(ngModel)]="ingredient.estCorpsGras" class="form-check-input">
+      <label class="form-check-label" for="estCorpsGras">Est un corps gras</label>
+    </div>
+
+    <!-- Bouton d'envoi -->
+    <div class="col-12 text-center">
+      <button type="submit" class="btn btn-primary px-4" [disabled]="ingredientForm.invalid">Envoyer</button>
+    </div>
+  </form>
+<br>
+  <app-ingredient-list></app-ingredient-list> 
+<br>  
+  <!-- Affichage d'un message de chargement -->
+  <div *ngIf="isLoading" class="alert alert-info">
+    Chargement des ingrédients...
+  </div>
+
+  <!-- Affichage d'une erreur si la requête échoue -->
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Tableau des ingrédients -->
+  <table class="table table-bordered table-striped mt-3" *ngIf="!isLoading && ingredients.length > 0">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Ind. INS</th>
+        <th>Ind. Iode</th>
+        <th>Ind. Sapo.</th>
+        <th>Vol. Mousse</th>
+        <th>Tenue Mousse</th>
+        <th>Douceur</th>
+        <th>Lavant</th>
+        <th>Duretée</th>
+        <th>Solubilité</th>
+        <th>Séchage</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ingredient of ingredients">
+        <td>{{ ingredient.id }}</td>
+        <td>{{ ingredient.nom }}</td>
+        <td>{{ ingredient.ins }}</td>
+        <td>{{ ingredient.iode }}</td>
+        <td>{{ ingredient.sapo }}</td>
+        <td>{{ ingredient.volMousse }}</td>
+        <td>{{ ingredient.tenueMousse }}</td>
+        <td>{{ ingredient.douceur }}</td>
+        <td>{{ ingredient.lavant }}</td>
+        <td>{{ ingredient.durete }}</td>
+        <td>{{ ingredient.solubilite }}</td>
+        <td>{{ ingredient.sechage }}</td>
+        <td><button>modifier</button><br><button>supprimer</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Message si aucun ingrédient n'est disponible -->
+  <div *ngIf="!isLoading && ingredients.length === 0" class="alert alert-warning">
+    Aucun ingrédient disponible.
+  </div>
+</div>
+<app-ingredient-import-export></app-ingredient-import-export>

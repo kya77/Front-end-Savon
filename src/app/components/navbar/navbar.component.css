@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #444;
+    color: white;
+    padding: 10px 20px;
+}
+
+.logo {
+    background-color: #d6249f;
+    padding: 10px 15px;
+    color: white;
+    font-weight: bold;
+}
+
+.nav {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-btn {
+    background-color: #444;;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.caca {
+    background-color: #2e8b57;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.nav-btn:hover {
+    background-color: #888;
+}
+
+.user {
+    background-color: #2e8b57;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
