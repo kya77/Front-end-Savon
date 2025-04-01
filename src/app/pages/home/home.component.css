@@ -1,4 +1,12 @@
-
-.box{
-    border-radius: 0.6cm;
+div img{
+    width: 400px;
+    height: 300px;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 4px 7px 7px 0px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    margin: 10px;
+    
 }
