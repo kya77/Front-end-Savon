@@ -11,7 +11,8 @@ export class LigneIngredient {
     /**
      * Identifiant unique de l'association ingrédient-recette (clé primaire).
      */
-    ingredientId: number | null = null;
+    id: number | null = null;
+
     /**
      * Quantité en grammes (`g`) de l'ingrédient dans la recette.
      */
