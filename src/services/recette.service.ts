@@ -99,4 +99,4 @@ export class RecetteService {
       this.indiceMoyenINS = this.calculerINSMoyen(this.recette);
       console.log(`L'indice INS moyen est: ${this.indiceMoyenINS.toFixed(1)}`);
   }
-}*/
+}*/}
