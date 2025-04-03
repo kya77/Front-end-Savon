@@ -11,6 +11,7 @@ export class RecetteIndexComponent {
   recettes: Recette[] = []; // Liste des ingrédients de l’API
   isLoading: boolean = true; // Flag marquant la récupération des données
   errorMessage: string = ""; // Eventuel message d'erreur
+  indiceMoyenINS!: number;
 
   constructor(private recetteService: RecetteService) {}
 ngOnInit(): void {
@@ -28,5 +29,29 @@ fetchRecettes(): void {
   this.isLoading = false;
   }
   });
+}
+
+// Méthode pour supprimer toutes les recettes
+deleteAllRecette(): void {
+  if (this.recettes.length === 0) {
+    return;
+  }
+  
+  // Afficher une confirmation avant de supprimer
+  if (confirm('Êtes-vous sûr de vouloir supprimer toutes les recettes ? Cette action est irréversible.')) {
+    // Appel au service pour supprimer toutes les recettes
+    this.recetteService.deleteAllRecette().subscribe({
+      next: () => {
+        this.recettes = [];
+        // Afficher un message de succès (optionnel)
+        // this.messageService.add({severity: 'success', summary: 'Succès', detail: 'Toutes les recettes ont été supprimées'});
+      },
+      error: (error) => {
+        this.errorMessage = `Erreur lors de la suppression des recettes: ${error.message}`;
+      }
+    });
+  }
+
+
 }
 }

@@ -10,6 +10,14 @@ import { RecetteDTO } from '../app/models/RecetteDTO';
 })
 
 export class RecetteService {
+  recette: Recette[] = [];
+  indiceMoyenINS: any;
+    deleteAllIngredients() {
+      throw new Error('Method not implemented.');
+    }
+    supprimerToutesRecettes() {
+      throw new Error('Method not implemented.');
+    }
     private apiUrl = 'http://localhost:8080/api-savon/v1';
   
     constructor(private http: HttpClient) {}
@@ -58,4 +66,37 @@ export class RecetteService {
     deleteRecette(id: number): Observable<void> {
       return this.http.delete<void>(`${this.apiUrl}/recette/${id}`);
     }
+
+    /**
+     * Supprime toutes les recettes.
+     * @returns Un Observable vide.
+     */
+        deleteAllRecette(): Observable<void> {
+          return this.http.delete<void>(`${this.apiUrl}/recette/all`);
+        }
+
+
+  /**
+   * Calcule l'indice INS moyen de toutes les recettes
+   * @param recettes Liste des recettes à analyser
+   * @returns La moyenne des indices INS ou 0 si aucune recette
+   */
+  /*calculerINSMoyen(recettes: Recette[]): number {
+    if (recettes.length === 0) {
+      return 0;
+    }*/
+    
+    // L'indice INS est stocké dans recette.resultats[0].score
+    /*const sommeINS = recettes.reduce((somme, recette) => {
+      return somme + recette.resultats[0].score;
+    }, 0);
+    
+    return sommeINS / recettes.length;
   }
+    
+    // Cette méthode pourrait être appelée après le chargement des recettes
+    calculerStatistiques(): void {
+      this.indiceMoyenINS = this.calculerINSMoyen(this.recette);
+      console.log(`L'indice INS moyen est: ${this.indiceMoyenINS.toFixed(1)}`);
+  }
+}*/

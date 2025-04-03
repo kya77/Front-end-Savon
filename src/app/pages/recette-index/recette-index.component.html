@@ -1,6 +1,12 @@
 <div class="container mt-4">
   <h2>Gestion de mes recettes</h2>
 
+  <div>
+    <table>
+        <th></th>
+    </table>
+  </div>
+
   <!-- Message de chargement -->
   <div *ngIf="isLoading" class="alert alert-info">
     Chargement des recettes...
@@ -116,11 +122,17 @@
           <div class="card-footer">
               <a href="#" class="btn btn-info"><i class="bi bi-pen-fill me-1"></i>Modifier</a>
               <button href="#" class="btn btn-danger"><i class="bi bi-trash-fill me-1"></i>Supprimer</button>
-          </div>  
+          </div>
+   
+      </div>
+      </div>
 
-      </div>    
-      </div>
-      </div>
+        <div>
+            <!-- Bouton pour supprimer toutes les recettes -->
+            <button href= ""s="btn btn-danger" (click)="deleteAllRecette()">
+                <i class="bi bi-trash-fill me-1"></i>Supprimer toutes les recettes
+            </button>
+         </div>
   </div>
 
 </div>
